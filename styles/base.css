@@ -4,6 +4,7 @@ body {
   color: #313131;
 }
 
+
 /*TEXT STYLES
 ====================================*/
 p {
@@ -15,7 +16,7 @@ article {
   margin: 0 2.5%;
 }
 /*font here because it's text styling? */
-h2 {
+.heading-group-h1 h2 {
   font-family: 'Lobster', cursive;
 }
 

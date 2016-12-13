@@ -1,0 +1,39 @@
+.heading-group-h1 {
+  max-width: 80%;
+
+}
+
+@media only screen and (min-width: 640px) {
+  .heading-group-h1 {
+    padding: .1em .1em .1em .2em;
+    float: none;
+  }
+  .icon-menu {
+    display: none;
+  }
+
+  .main-nav ul {
+    display: inline-flex;
+  }
+  .main-nav:hover ul {
+    display: inline-flex;
+  }
+
+  .main-nav li {
+    margin-right: 1.5em;
+    padding: .5em 2em;
+  }
+}
+
+.project-intro {
+  float: left;
+  clear: left;
+}
+
+/* I don't know what is going on here
+but when I float upper sections to the left, this
+floated to the top right */
+footer {
+  float: left;
+  clear: both;
+}

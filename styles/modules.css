@@ -1,0 +1,28 @@
+
+.site-header {
+  background: #FFEAAA;
+}
+
+.heading-group-h1 {
+  float: left;
+  padding: 0 0 .2em 1em;
+}
+
+.main-nav {
+  padding: 0.1em;
+}
+
+.icon-menu {
+    font-size: 3em;
+    text-align: right;
+
+}
+.main-nav ul {
+  /* NOTE: DONE We are by defualt hiding the main nav list because we are
+      expecting the UI to be mobile, therefore our new icon menu
+      takes its place. */
+  display: none;
+  padding: 0;
+  list-style: none;
+  clear: both;
+}

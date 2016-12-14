@@ -3,29 +3,7 @@
 
 }
 
-@media only screen and (min-width: 640px) {
-  .heading-group-h1 {
-    padding: .1em .1em .1em .2em;
-    float: none;
-  }
-  .icon-menu {
-    display: none;
-  }
-
-  .main-nav ul {
-    display: inline-flex;
-  }
-  .main-nav:hover ul {
-    display: inline-flex;
-  }
-
-  .main-nav li {
-    margin-right: 1.5em;
-    padding: .5em 2em;
-  }
-}
-
-.project-intro {
+.template {
   float: left;
   clear: left;
 }

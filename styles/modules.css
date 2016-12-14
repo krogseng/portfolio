@@ -15,7 +15,10 @@
 .icon-menu {
     font-size: 3em;
     text-align: right;
+}
 
+.main-nav:hover ul {
+  display: inline-flex;
 }
 
 .main-nav ul {
@@ -26,4 +29,22 @@
   padding: 0;
   list-style: none;
   clear: both;
+}
+@media only screen and (min-width: 640px) {
+  .heading-group-h1 {
+    padding: .1em .1em .1em .2em;
+    float: none;
+  }
+  .icon-menu {
+    display: none;
+  }
+
+  .main-nav ul {
+    display: inline-flex;
+  }
+
+  .main-nav li {
+    margin-right: 1.5em;
+    padding: .5em 2em;
+  }
 }

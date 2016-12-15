@@ -26,7 +26,7 @@
       expecting the UI to be mobile, therefore our new icon menu
       takes its place. */
   display: none;
-  padding: 0;
+  padding: 1em;
   list-style: none;
   clear: both;
 }

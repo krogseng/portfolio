@@ -17,24 +17,18 @@ function Article(opts) {
 Article.prototype.toHtml = function() {
   /*article.template is an element with a class */
   var $newArticle = $('article.template').clone();
-  $newArticle.attr('data-category', this.category);
-  $newArticle.attr('author', this.author);
-  $newArticle.attr('authorUrl', this.authorUrl);
-  $newArticle.attr('articleTitle', this.articleTitle);
-  $newArticle.attr('publishedOn', this.publishedOn);
-  $newArticle.attr('articleBody', this.articleBody);
 
+$newArticle.attr('data-category', this.category);
 /*get the elements to replace */
-$newArticle.find('a').html(this.author);
-$newArticle.find('a').attr('href', this.authorUrl);
-
-$newArticle.find('h1').html(this.title);
-$newArticle.find('.articleBody').html(this.body);
+$newArticle.find('.byline a').text(this.author);
+$newArticle.find('.byline a').attr('href', this.authorUrl);
+$newArticle.find('header h1:first').text(this.articleTitle);
+$newArticle.find('.article-body').text(this.articleBody);
 $newArticle.find('time[pubdate]').attr('title', this.publishedOn);
 $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
 
-  /* we're done with template mode */
-  $newArticle.removeAttr('class');
+/* we're done with template node */
+$newArticle.removeAttr('class');
 
   return $newArticle;
 }

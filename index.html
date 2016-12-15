@@ -1,11 +1,13 @@
-<!DOCTYPE html lang="en">
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="styles/normalize/normalize.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="https:fonts.googleapis.com/css?family=Lobster">
     <link rel="stylesheet" href="styles/icons.css">
-    <link rel="stylesheet" href="styles/layout.css">
     <link rel="stylesheet" href="styles/modules.css">
 
     <link rel="icon" type="image/x-icon" href="lmk.ico">
@@ -14,13 +16,13 @@
   <body>
     <header class="site-header clear-fix">
       <section class="heading-group-h1">
-        <h1>Lynn</h1>
-        <h1>Krogseng</h1>
-        <h2>Building Web Solutions</h2>
+        <h1 class="first-name">Lynn</h1>
+        <h1 class="last-name">Krogseng</h1>
+        <h2 class="tag-line">Building Web Solutions</h2>
       </section>
 
     <nav class="main-nav">
-      <div class="icon-menu"></div>
+      <div class="icon-menu"></div><!--end of icon-menu-->
       <ul>
         <li class="tab"><a href="#" class="icon-home">Home</a></li>
         <li class="tab"><a href="#" class="icon-home3">About</a></li>
@@ -29,28 +31,34 @@
         <!--<li class="tab"><a href="#" class="icomoon">Follow</a>-->
 
             <li class="tab"><a class="icon-twitter3" href="https://twitter.com/lynnkrogseng">Twitter</a></li>
-            <li class="tab"><a class"icon-eye2" href="https://www.linkedin.com/in/krogseng">LinkedIn</a></li>
+            <li class="tab"><a class="icon-eye2" href="https://www.linkedin.com/in/krogseng">LinkedIn</a></li>
             <li class="tab"><a class="icon-github" href="https://github.com/krogseng">GitHub</a></li>
 
         </li><!--end follow list-->
       </ul>
+
     </nav><!--main-nav-->
   </header>
     <main>
-      <section id="articles" class="project-intro">
-        <article class="clearfix">
+      <section id="articles">
+        <article class="template" data-category="cat">
           <header>
-            <h1>Portfolio</h1>
-            <div class="summary">
-              <p>The start of the ongoing project of expanding my portfolio as I expand my development skills.</p>
+            <h1>Title</h1>
+            <div class="byline">
+              By <address><a href="">Author Name</a></address>
+              published <time pubdate datetime="2000-01-01">Publish Time</time>
             </div>
           </header>
-          <section class="article-body"><p>When I have more details, I'll add them here. Just now I have two problems with my page.</p>
+          <section class="articleBody"></section>
         </article>
       </section>
     </main>
     <footer>
       &copy; 2016 Lynn Krogseng | Static Blog
     </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="scripts/blogArticles.js"></script>
+  <script type="text/javascript" src="scripts/article-maker.js"></script>
+</body>
 </body>
 </html>

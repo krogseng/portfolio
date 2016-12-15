@@ -6,12 +6,18 @@
 .template {
   float: left;
   clear: left;
+  display: none;
 }
 
 /* I don't know what is going on here
 but when I float upper sections to the left, this
 floated to the top right */
 footer {
+  float: left;
+  clear: both;
+}
+
+main {
   float: left;
   clear: both;
 }

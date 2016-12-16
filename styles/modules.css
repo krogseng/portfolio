@@ -8,8 +8,22 @@
   padding: 0 0 .2em 1em;
 }
 
+.heading-group-h1 .logo {
+  margin-bottom: .1em;
+  color: purple;
+  font-family: "Lobster", cursive;
+  font-size: 3em;
+}
+.tag-line {
+  font-family: inherit;
+  color: gray;
+}
+
 .main-nav {
   padding: 0.1em;
+  background-color: black;
+  color: white;
+  line-height: 1.2em;
 }
 
 .icon-menu {
@@ -46,5 +60,18 @@
   .main-nav li {
     margin-right: 1.5em;
     padding: .5em 2em;
+  }
+
+  #filters select {
+    width: 15em;
+    margin: .2em .2em;
+  }
+
+  #filters li {
+    width: 20eml
+    display: inline;
+  }
+  .tag-line {
+    color: black;
   }
 }

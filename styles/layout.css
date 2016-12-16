@@ -20,4 +20,16 @@ footer {
 main {
   float: left;
   clear: both;
+  background-color: lightblue;
+  width: 100%;
+}
+
+#filters li {
+  list-style: none;
+  width: 20em;
+  display: inline;
+}
+
+#about {
+  width: 90%;
 }

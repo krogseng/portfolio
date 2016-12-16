@@ -19,11 +19,12 @@ Article.prototype.toHtml = function() {
   var $newArticle = $('article.template').clone();
 
 $newArticle.attr('data-category', this.category);
+$newArticle.attr('data-attribute', this.author);
 /*get the elements to replace */
 $newArticle.find('.byline a').text(this.author);
 $newArticle.find('.byline a').attr('href', this.authorUrl);
 $newArticle.find('header h1:first').text(this.articleTitle);
-$newArticle.find('.article-body').text(this.articleBody);
+$newArticle.find('.article-body').html(this.articleBody);
 $newArticle.find('time[pubdate]').attr('title', this.publishedOn);
 $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
 

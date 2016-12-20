@@ -3,8 +3,25 @@ var articleView = {};
 
 articleView.populateFilters = function() {
   $('article').not('template').each(function() {
-    var authorName;
-    var category;
+    var authorName = $(this).find('address a').text();
+    var category = $(this).find('data-category');
+    var context = {
+      author: authorName,
+      cat: category
+    };
+    /*populate author filter */
+    var source = $('#author-template').html();
+    var template = Handlebars.compile(source);
+    var html = template(context);
+    $('#author-filter').append(html);
+
+    /*populate category filter */
+    source = $('#category-template').html();
+    template = Handlebars.compile(source);
+    html = template(context);
+    $('#category-filter').append(html);
+
+    /*done with this
     var optionTag;
     authorName = $(this).find('address a').text();
     optionTag = '<option value="' + authorName + '">' + authorName + '</option>';
@@ -16,6 +33,7 @@ articleView.populateFilters = function() {
     if ($('#category-filter option[value="' + category + '"]').length === 0) {
       $('#category-filter').append(optionTag);
     }
+    */
   });
 };
 
@@ -47,6 +65,7 @@ articleView.handleCategoryFilter = function() {
       /*hide all the articles and then show the articles by selected author */
       $('article').hide();
       var category = $(this).val();
+      console.log('category is ' + category);
       $('[data-category = "' + category + '"]').fadeIn();
     } else {
 /* Otherwise, we should:
@@ -62,12 +81,12 @@ articleView.handleMainNav = (function() {
   $('.main-nav').on('click', '.tab', function() {
     $('.main-nav').click(function(event) {
       event.preventDefault();
+      $('.tab-content').hide();
+    //who called
+      var navItem = $(this).attr('data-content');
+      console.log('navitem ' + $(this));
+      $('#' + navItem).fadeIn();
     });
-    $('.tab-content').hide();
-  //who called
-    var navItem = $(this).attr('data-content');
-    $('#' + navItem).fadeIn();
-
   //I don't know why this is here...
     $('main-nav .tab:first').click();
   });

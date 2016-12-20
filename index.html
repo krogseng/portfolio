@@ -12,6 +12,27 @@
 
     <link rel="icon" type="image/x-icon" href="lmk.ico">
     <title>Krogseng</title>
+    <!-- handlebars scripts -->
+    <script id="article-template" type="x-handlebars-template">
+      <article class="clearfix" data-author="{{author}}" data-category="{{category}}">
+        <header>
+          <h1>{{title}}</h1>
+          <div class="byline">
+            By <address><a href="{{authorUrl}}">{{author}}</a></address>
+            {{publishStatus}}
+            </div>
+        </header>
+        <section class='article-body'>{{{body}}}</section>
+        <a href="" class='Read on'>Read on</a>
+      </article>
+    </script>
+    <!-- load the filters -->
+    <script id="author-template" type="x-handlebars-template">
+      <option value="{{author}}">{{author}}</option>
+    </script>
+    <script id="category-template" type="x-handlebars-template">
+      <option value="{{cat}}">{{cat}}</option>
+      </script>
   </head>
   <body>
     <header class="site-header clear-fix">
@@ -85,6 +106,7 @@
       &copy; 2016 Lynn Krogseng | Static Blog
     </footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
   <script type="text/javascript" src="scripts/blogArticles.js"></script>
   <script type="text/javascript" src="scripts/article-maker.js"></script>
   <script type="text/javascript" src="scripts/articleView.js"></script>

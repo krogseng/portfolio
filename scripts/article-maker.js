@@ -15,24 +15,13 @@ function Article(opts) {
 
 /*create the instances of information from the Article object */
 Article.prototype.toHtml = function() {
-  /*article.template is an element with a class */
-  var $newArticle = $('article.template').clone();
+  var source = $('#article-template').html();
+  var template = Handlebars.compile(source);
+  this.daysAgo = parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000);
+  this.publishStatus = this.publishedOn ? 'published ' + this.daysAgo + ' days ago' : '(draft)';
+  var html = template(this);
+  return html;
 
-  $newArticle.attr('data-category', this.category);
-  $newArticle.attr('data-attribute', this.author);
-/*get the elements to replace */
-
-  $newArticle.find('.byline a').text(this.author);
-  $newArticle.find('.byline a').attr('href', this.authorUrl);
-  $newArticle.find('header h1:first').text(this.title);
-  $newArticle.find('.article-body').html(this.body);
-  $newArticle.find('time[pubdate]').attr('title', this.publishedOn);
-  $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
-
-/* we're done with template node */
-  $newArticle.removeAttr('class');
-
-  return $newArticle;
 };
 
 /* sort based on publication date, using Date function to get millions of seconds */

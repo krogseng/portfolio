@@ -4,7 +4,7 @@ var articleView = {};
 articleView.populateFilters = function() {
   $('article').not('template').each(function() {
     var authorName = $(this).find('address a').text();
-    var category = $(this).find('data-category');
+    var category = $(this).attr('data-category');
     var context = {
       author: authorName,
       cat: category
@@ -12,28 +12,19 @@ articleView.populateFilters = function() {
     /*populate author filter */
     var source = $('#author-template').html();
     var template = Handlebars.compile(source);
+
     var html = template(context);
-    $('#author-filter').append(html);
+    if (!$('#author-filter option[value="' + authorName + '"]').length) {
+      $('#author-filter').append(html);
+    }
 
     /*populate category filter */
     source = $('#category-template').html();
     template = Handlebars.compile(source);
     html = template(context);
-    $('#category-filter').append(html);
-
-    /*done with this
-    var optionTag;
-    authorName = $(this).find('address a').text();
-    optionTag = '<option value="' + authorName + '">' + authorName + '</option>';
-    if ($('#author-filter option[value="' + authorName + '"]').length === 0) {
-      $('#author-filter').append(optionTag);
-    }
-    category = $(this).attr('data-category');
-    optionTag = '<option value="' + category + '">' + category + '</option>';
-    if ($('#category-filter option[value="' + category + '"]').length === 0) {
-      $('#category-filter').append(optionTag);
-    }
-    */
+    if (!$('#category-filter option[value="' + category + '"]').length) {
+      $('#category-filter').append(html);
+    };
   });
 };
 
@@ -46,7 +37,7 @@ articleView.handleAuthorFilter = function() {
       /*hide all the articles and then show the articles by selected author */
       $('article').hide();
       var authorName = $(this).val();
-      $('[data-attribute = "' + authorName + '"]').fadeIn();
+      $('[data-author = "' + authorName + '"]').fadeIn();
     } else {
 /* Otherwise, we should:
   Show all the articles except the template */
@@ -60,12 +51,10 @@ articleView.handleAuthorFilter = function() {
 
 articleView.handleCategoryFilter = function() {
   $('#category-filter').on('change', function() {
-
     if ($(this).val()) {
       /*hide all the articles and then show the articles by selected author */
       $('article').hide();
       var category = $(this).val();
-      console.log('category is ' + category);
       $('[data-category = "' + category + '"]').fadeIn();
     } else {
 /* Otherwise, we should:
@@ -87,7 +76,6 @@ articleView.handleMainNav = (function() {
       console.log('navitem ' + $(this));
       $('#' + navItem).fadeIn();
     });
-  //I don't know why this is here...
     $('main-nav .tab:first').click();
   });
 });
@@ -96,8 +84,9 @@ articleView.handleMainNav = (function() {
 //for now, reveal the rest of the article.
 //later, set a toggle to hide all but first paragraph
 articleView.setTeasers = function() {
+
   $('.article-body *:nth-of-type(n+2)').hide();
-  $('.read-on').on('click', function(event) {
+  $('article').on('click', '.read-on',function(event) {
     event.preventDefault();
     if ($(this).text() === 'Read on') {
       $(this).parent().find('*').fadeIn();

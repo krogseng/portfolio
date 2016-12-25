@@ -27,11 +27,11 @@
       </article>
     </script>
     <!-- load the filters -->
-    <script id="author-template" type="x-handlebars-template">
+    <script id="author-filter-template" type="x-handlebars-template">
       <option value="{{author}}">{{author}}</option>
     </script>
-    <script id="category-template" type="x-handlebars-template">
-      <option value="{{cat}}">{{cat}}</option>
+    <script id="category-filter-template" type="x-handlebars-template">
+      <option value="{{category}}">{{category}}</option>
       </script>
   </head>
   <body>
@@ -78,7 +78,7 @@
           <header>
             <h1>Title</h1>
             <div class="byline">
-              By <address><a href="">Author Name</a></address>
+              By <address><a href="" data-author="author">Author Name</a></address>
               published <time pubdate datetime="2000-01-01">Publish Time</time>
             </div>
           </header>
@@ -107,9 +107,10 @@
     </footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
-  <script type="text/javascript" src="scripts/blogArticles.js"></script>
-  <script type="text/javascript" src="scripts/article-maker.js"></script>
-  <script type="text/javascript" src="scripts/articleView.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.js".</script>
+  <script type="text/javascript" src="data/blogArticles.json"></script>
+  <script type="text/javascript" src="scripts/models/article-maker.js"></script>
+  <script type="text/javascript" src="scripts/views/articleView.js"></script>
 </body>
 
 </html>

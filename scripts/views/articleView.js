@@ -80,12 +80,9 @@ articleView.renderIndexPage=function() {
   articleView.handleMainNav();
   articleView.setTeasers();
 };
-//does json need to be right here?
-/*$.getJSON('/data/hackerIpsum.json').done( function(data) {
-  Article.articleSort(data);
-  articleView.renderIndexPage();
-});
-*/
+
+var retrievedFile = localStorage.getItem('getStatus');
+
 $.getJSON('/data/blogArticles.json').done( function(data) {
   Article.articleSort(data);
   articleView.renderIndexPage();

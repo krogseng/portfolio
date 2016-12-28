@@ -2,6 +2,8 @@
 /* create the array of articles to read the data file */
 Article.articleArray = [];
 
+//not sure about this
+localStorage.setItem('getStatus', 'false');
 /*receive the object and associate to the key fields of the article */
 /* save the properties of the incoming object */
 

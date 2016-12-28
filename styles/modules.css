@@ -1,6 +1,6 @@
 
 .site-header {
-  background: #FFEAAA;
+  background: #b898a6;
 }
 
 .heading-group-h1 {
@@ -10,7 +10,7 @@
 
 .heading-group-h1 .logo {
   margin-bottom: .1em;
-  color: purple;
+  color: #441d2e;
   font-family: "Lobster", cursive;
   font-size: 3em;
 }
@@ -68,10 +68,10 @@
   }
 
   #filters li {
-    width: 20eml
+    width: 20eml;
     display: inline;
   }
   .tag-line {
-    color: black;
+    color: #295f48;
   }
 }

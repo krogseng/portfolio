@@ -1,5 +1,6 @@
 /* create article objects and get them ready for population */
 /* create the array of articles to read the data file */
+
 (function(module){
 
   /*receive the object and associate to the key fields of the article */
@@ -88,5 +89,37 @@
     });
   };
 
+  Article.fetchAll = function(nextFunction) {
+    if (localStorage.blogArticles) {
+      $.ajax({
+        type: 'HEAD',
+        url: '/data/blogArticles.json',
+        success: function(data, message, xhr) {
+          var eTag = xhr.getResponseHeader('eTag');
+          if (!localStorage.eTag || eTag !== localStorage.eTag) {
+            localStorage.eTag = eTag;
+            Article.getAll(nextFunction); // DONE: pass 'nextFunction' into Article.getAll();
+          } else {
+            Article.loadAll(JSON.parse(localStorage.blogArticles));
+            // DONE: Replace the following line with 'nextFunction' and invoke it!
+            nextFunction();
+          }
+        }
+      });
+    } else {
+      Article.getAll(nextFunction); // DONE: pass 'nextFunction' into getAll();
+    }
+  };
+
+  Article.getAll = function(nextFunction) {
+    $.getJSON('/data/blogArticles.json', function(responseData) {
+      Article.loadAll(responseData);
+      localStorage.blogArticles = JSON.stringify(responseData);
+      // DONE: invoke nextFunction!
+      nextFunction();
+    });
+  };
+
   module.Article = Article;
+  Article.fetchAll(articleView.renderIndexPage);
 })(window);

@@ -1,9 +1,8 @@
 // view object to hold functions for dynamic updates and article related event handlers
-(function(module){
-
+console.log('about to call article view Constructor');
   var articleView = {};
 
-
+console.log('called article view Constructor');
   articleView.handleAuthorFilter = function() {
     $('#author-filter').on('change', function() {
       if ($(this).val()) {
@@ -81,38 +80,3 @@
     articleView.handleMainNav();
     articleView.setTeasers();
   };
-
-  Article.fetchAll = function(nextFunction) {
-    if (localStorage.blogArticles) {
-      $.ajax({
-        type: 'HEAD',
-        url: '/data/blogArticles.json',
-        success: function(data, message, xhr) {
-          var eTag = xhr.getResponseHeader('eTag');
-          if (!localStorage.eTag || eTag !== localStorage.eTag) {
-            localStorage.eTag = eTag;
-            Article.getAll(nextFunction); // DONE: pass 'nextFunction' into Article.getAll();
-          } else {
-            Article.loadAll(JSON.parse(localStorage.blogArticles));
-            // DONE: Replace the following line with 'nextFunction' and invoke it!
-            nextFunction();
-          }
-        }
-      });
-    } else {
-      Article.getAll(nextFunction); // DONE: pass 'nextFunction' into getAll();
-    }
-  };
-
-  Article.getAll = function(nextFunction) {
-    $.getJSON('/data/blogArticles.json', function(responseData) {
-      Article.loadAll(responseData);
-      localStorage.blogArticles = JSON.stringify(responseData);
-      // DONE: invoke nextFunction!
-      nextFunction();
-    });
-  };
-
-  module.articleView = articleView;
-})(window);
-Article.fetchAll(articleView.renderIndexPage);

@@ -45,8 +45,8 @@
     <nav class="main-nav">
       <div class="icon-menu"></div><!--end of icon-menu-->
       <ul>
-        <li class="tab" data-content="articles"><a href="#articles" class="icon-home">Home</a></li>
-        <li class="tab" data-content="about"><a href="#about" class="icon-home3">About</a></li>
+        <li class="tab" data-content="articles"><a href="/articles" class="icon-home">Home</a></li>
+        <li class="tab" data-content="about"><a href="/about" class="icon-home3">About</a></li>
         <li class="tab"><a href="#" class="icon-address-book">Contact</a></li>
         <!--I want a drop down menu here -->
         <!--<li class="tab"><a href="#" class="icomoon">Follow</a>-->
@@ -107,11 +107,20 @@
     </footer>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.js".</script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.js"></script>
   <script type="text/javascript" src="data/blogArticles.json"></script>
 
+  <script type="text/javascript" src="vendor/scripts/page.js"></script>
+
+  <!-- view scripts -->
   <script type="text/javascript" src="scripts/views/articleView.js"></script>
-    <script type="text/javascript" src="scripts/models/article-maker.js"></script>
+  <!-- model scripts -->
+  <script type="text/javascript" src="scripts/models/article-maker.js"></script>
+  <!-- controller scripts -->
+  <script type="text/javascript" src="scripts/controllers/aboutController.js"></script>
+  <script type="text/javascript" src="scripts/controllers/articleController.js"></script>
+  <script type="text/javascript" src="scripts/controllers/routes.js"></script>
+
 </body>
 
 </html>

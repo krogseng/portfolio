@@ -1,8 +1,6 @@
 // view object to hold functions for dynamic updates and article related event handlers
-console.log('about to call article view Constructor');
   var articleView = {};
 
-console.log('called article view Constructor');
   articleView.handleAuthorFilter = function() {
     $('#author-filter').on('change', function() {
       if ($(this).val()) {
@@ -38,17 +36,6 @@ console.log('called article view Constructor');
     });
   };
 
-  articleView.handleMainNav = (function() {
-    $('.main-nav').on('click', '.tab', function(event) {
-      //  event.preventDefault();
-      $('.tab-content').hide();
-      //who called
-      $('#' + $(this).data('content')).fadeIn();
-    });
-    $('main-nav .tab:first').click();
-  });
-
-
   //for now, reveal the rest of the article.
   //later, set a toggle to hide all but first paragraph
   articleView.setTeasers = function() {
@@ -77,6 +64,5 @@ console.log('called article view Constructor');
 
     articleView.handleAuthorFilter();
     articleView.handleCategoryFilter();
-    articleView.handleMainNav();
     articleView.setTeasers();
   };

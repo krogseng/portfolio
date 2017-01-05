@@ -2,9 +2,7 @@
   var reposObj = {};
 
   reposObj.allRepos = [];
-
   reposObj.requestRepos = function(callback) {
-
     $.ajax('https://api.github.com/user/repos', {
       method: 'GET', // usually default
       //headers: {Authorization: 'token ' + githubToken}, // this or parameters version
@@ -14,10 +12,8 @@
         callback();
       },
       error: function(response) {
-        console.log('ooops', response);
       }
     });
-    console.log('finished ajax');
   };
 
   reposObj.withTheAttribute = function(myAttr) {

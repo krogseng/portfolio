@@ -1,7 +1,9 @@
 // call the pages
 
-page('/articles', articleController.reveal);
+page('/', articleController.reveal);
 
 page('/about', aboutController.reveal);
+
+page('/gitrepos', repoController.reveal);
 //now call page.js to make it all run
 page();

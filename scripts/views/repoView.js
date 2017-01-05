@@ -2,17 +2,18 @@
 
   var repoView = {};
 
-  var repoCompiler = funtion(currentValue){
+  var repoCompiler = function(currentValue) {
     var source = $('#repo-template').html();
     var template = Handlebars.compile(source);
     var html = template(currentValue);
+    console.log('html ', html);
     return html;
+  };
 
   repoView.renderRepos = function() {
-    $('#gitrepos ul').empty().append(reposObj.withTheAttribute('language')
-    .map(repoCompiler)
-  );
+    $('#gitrepos ul').empty();
+    $('#gitrepos ul').append(reposObj.withTheAttribute('name').map(repoCompiler));
   };
-reposObj.requestRepos(repoView,renderRepos);
-module.repoView = repoView;
+  reposObj.requestRepos(repoView.renderRepos);
+  module.repoView = repoView;
 })(window);

@@ -6,7 +6,6 @@
     var source = $('#repo-template').html();
     var template = Handlebars.compile(source);
     var html = template(currentValue);
-    console.log('html ', html);
     return html;
   };
 

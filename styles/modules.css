@@ -1,0 +1,77 @@
+
+.site-header {
+  background: #b898a6;
+}
+
+.heading-group-h1 {
+  float: left;
+  padding: 0 0 .2em 1em;
+}
+
+.heading-group-h1 .logo {
+  margin-bottom: .1em;
+  color: #441d2e;
+  font-family: "Lobster", cursive;
+  font-size: 3em;
+}
+.tag-line {
+  font-family: inherit;
+  color: gray;
+}
+
+.main-nav {
+  padding: 0.1em;
+  background-color: black;
+  color: white;
+  line-height: 1.2em;
+}
+
+.icon-menu {
+    font-size: 3em;
+    text-align: right;
+}
+
+.main-nav:hover ul {
+  display: inline-flex;
+}
+
+.main-nav ul {
+  /* NOTE: DONE We are by defualt hiding the main nav list because we are
+      expecting the UI to be mobile, therefore our new icon menu
+      takes its place. */
+  display: none;
+  padding: 1em;
+  list-style: none;
+  clear: both;
+}
+@media only screen and (min-width: 640px) {
+  .heading-group-h1 {
+    padding: .1em .1em .1em .2em;
+    float: none;
+  }
+  .icon-menu {
+    display: none;
+  }
+
+  .main-nav ul {
+    display: inline-flex;
+  }
+
+  .main-nav li {
+    margin-right: 1.5em;
+    padding: .5em 2em;
+  }
+
+  #filters select {
+    width: 15em;
+    margin: .2em .2em;
+  }
+
+  #filters li {
+    width: 20eml;
+    display: inline;
+  }
+  .tag-line {
+    color: #295f48;
+  }
+}

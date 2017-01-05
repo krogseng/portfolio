@@ -61,7 +61,7 @@
         <li class="tab" data-content="articles"><a href="/articles" class="icon-home">Home</a></li>
         <li class="tab" data-content="about"><a href="/about" class="icon-home3">About</a></li>
         <li class="tab"><a href="#" class="icon-address-book">Contact</a></li>
-        <li class="tab"><a href="#" class="icon-github">My Repos</a></li>
+        <li class="tab" data-content="gitrepos"><a href="/gitrepos" class="icon-github">My Repos</a></li>
         <!--I want a drop down menu here -->
         <!--<li class="tab"><a href="#" class="icomoon">Follow</a>-->
             <li class="tab" target="_blank"><a class="icon-twitter3" href="https://twitter.com/lynnkrogseng">Twitter</a></li>
@@ -88,18 +88,6 @@
               </select>
             </li>
           </ul>
-          <!-- I think this section can be removed -->
-       <article class="template" data-category="cat">
-          <header>
-            <h1>Title</h1>
-            <div class="byline">
-              By <address><a href="" data-author="author">Author Name</a></address>
-              published <time pubdate datetime="2000-01-01">Publish Time</time>
-            </div>
-          </header>
-          <section class="article-body"></section>
-          <a href="#" class="read-on">Read on</a>
-        </article>
       </section>
 
       <section id="about" class="tab-content">
@@ -117,17 +105,17 @@
           </ul>
         </section><!--interests-->
       </section><!--about-->
-        <section id="gitrepos" class="tab-content">
-          <header>
+      <section id="gitrepos" class="tab-content">
+        <header>
             Git Repositories
-          </header>
-          <section>
-            <h1>Check out my Projects on GitHub:</h1>
-            <ul>
-              <li>Coding Projects Go Here</li>
-            </ul>
-          </section><!-- github -->
-
+        </header>
+        <section>
+          <h1>Check out my Projects on GitHub:</h1>
+          <ul>
+            <li>Coding Projects Go Here</li>
+          </ul>
+        </section><!-- github -->
+      </section>
     </main>
     <footer>
       &copy; 2016 Lynn Krogseng | Static Blog
@@ -140,21 +128,21 @@
   <script type="text/javascript" src="vendor/scripts/page.js"></script>
 
   <!-- secret squirrel -->
-  <script type="text/javascript" src="/githubToken.js">
+  <script type="text/javascript" src="githubToken.js"></script>
 
-  </script>
+    <script src="scripts/models/repo.js" charset="utf-8"></script>
   <!-- view scripts -->
   <script type="text/javascript" src="scripts/views/articleView.js"></script>
-  <script type="text/javascript" src="scripts/views/repoView.js">
-
-  </script>
+  <script type="text/javascript" src="scripts/views/repoView.js"></script>
   <!-- model scripts -->
   <script type="text/javascript" src="scripts/models/article-maker.js"></script>
-  <script src="scripts/models/repo.js" charset="utf-8"></script>
+
   <!-- controller scripts -->
   <script type="text/javascript" src="scripts/controllers/aboutController.js"></script>
   <script type="text/javascript" src="scripts/controllers/articleController.js"></script>
+  <script type="text/javascript" src="scripts/controllers/repoController.js"></script>
   <script type="text/javascript" src="scripts/controllers/routes.js"></script>
+
 
 </body>
 

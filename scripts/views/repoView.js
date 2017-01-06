@@ -1,18 +1,21 @@
 (function(module) {
 
   var repoView = {};
-
-  var repoCompiler = function(currentValue) {
-    var source = $('#repo-template').html();
-    var template = Handlebars.compile(source);
-    var html = template(currentValue);
-    return html;
-  };
+// borrowed code...
+  var repoCompiler = Handlebars.compile($('#repo-template').text());
+  var followersCompiler = Handlebars.compile($('#followers-template').text());
 
   repoView.renderRepos = function() {
     $('#gitrepos ul').empty();
     $('#gitrepos ul').append(reposObj.withTheAttribute('name').map(repoCompiler));
+
+    $('#gitrepos .followers').empty().append(
+      reposObj.followers.map(followersCompiler)
+    );
+
   };
+
   reposObj.requestRepos(repoView.renderRepos);
+
   module.repoView = repoView;
 })(window);

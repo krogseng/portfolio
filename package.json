@@ -4,7 +4,8 @@
   "description": "mvc for the win!",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.14.0"
+    "express": "^4.14.0",
+    "express-request-proxy": "^1.0.10"
   },
   "devDependencies": {},
   "scripts": {

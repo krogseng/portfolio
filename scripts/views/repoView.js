@@ -10,7 +10,7 @@
     $('#gitrepos ul').append(reposObj.withTheAttribute('name').map(repoCompiler));
 
     $('#gitrepos .followers').empty().append(
-      reposObj.followers.map(followersCompiler)
+      reposObj.withTheAttribute('followers_url').map(followersCompiler)
     );
 
   };
